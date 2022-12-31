@@ -1,0 +1,12 @@
+//700. Search in a Binary Search Tree
+
+
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+    //loop will not stop untill it encounter null or the value it have to search.
+       while(root!=nullptr && root->val!=val){
+           root=val<root->val? root->left:root->right;
+       } 
+  return root;  }
+};
