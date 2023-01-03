@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+       return isv(root,LONG_MIN,LONG_MAX);
+    }
+    bool isv(TreeNode* root,long min,long max){
+        if(root==nullptr)
+        return true;
+        if(root->val>=max ||root->val<=min)
+        return false;
+        return isv(root->left,min,root->val ) && isv(root->right,root->val,max);
+    }
+};
