@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        if(root1==NULL || root2==NULL)
+        return false;
+        vector<int> l,r;
+        lf(root1,l);
+        r=l;
+        l.clear();
+        lf(root2,l);
+        if(l==r)
+        return true;
+        else
+        return false;
+    }
+    void lf(TreeNode* root,vector<int> &y) {
+        if(root==NULL)
+        return;
+        if(root->left==NULL && root->right==NULL)
+        {
+y.push_back(root->val);
+return;}
+lf(root->left,y);
+lf(root->right,y);
+        }
+    
