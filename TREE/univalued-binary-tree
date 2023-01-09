@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isUnivalTree(TreeNode* root) {
+        if(root==NULL)
+        return true;
+   int k=root->val;
+       return is(root,k);
+
+    }
+ bool is(TreeNode* root,int &k){
+
+     if(root==NULL)
+     return true;
+     if(root->val!=k)
+     return false;
+bool lf=is(root->left,k);
+bool rf=is(root->right,k);
+return lf && rf;
+
+ }   
+};
