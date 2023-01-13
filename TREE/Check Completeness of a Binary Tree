@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if(root==nullptr)
+        return 0;
+        int k=0;
+        count(root,k); 
+        return k;
+    }
+    void count(TreeNode*root,int &k){
+        if(root==nullptr)
+        return ;
+        k++;
+        
+        count(root->left,k);
+        count(root->right,k);
+    }
+};
