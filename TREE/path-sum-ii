@@ -1,0 +1,27 @@
+class Solution {
+public: vector<int> p;
+        vector<vector<int>> pt;
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        
+       
+        int s=0;
+        pa(root,targetSum,s);
+        return pt;
+
+    }
+    void pa(TreeNode* root,int target,int s){
+        if(root==nullptr)
+        return;
+   
+        s=s+root->val;
+             p.push_back(root->val);
+        if(root->left==NULL && root->right==NULL && s==target ){
+pt.push_back(p);
+}
+pa(root->right ,target,s);
+pa(root->left,target,s);
+p.pop_back();
+        }
+
+    
+};
