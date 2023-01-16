@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int deepestLeavesSum(TreeNode* root) {
+      
+    
+      int sum=0;
+int mx=gept(root);
+dfs(root,mx,sum,1);
+return sum;
+    }
+    void dfs(TreeNode* root,int &mx,int &sum, int depth){
+        if(root==nullptr)
+        return;
+     if(depth==mx)
+     {
+         sum+=root->val;
+         return;     }
+dfs(root->left,mx,sum,depth+1);
+dfs(root->right,mx,sum,depth+1);
+return;
+    }
+    int gept(TreeNode* root){
+        if(root==NULL)
+        return 0;
+        return max(gept(root->left),gept(root->right))+1;
+    }
+};
