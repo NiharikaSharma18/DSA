@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int findSecondMinimumValue(TreeNode* root) {
+       if(root==NULL) 
+       return 0;
+       set<int> v;vector<int> m;
+       mini(root,m);
+         sort(m.begin(), m.end());
+for(int i=0;i<m.size();i++){
+v.insert(m[i]);
+}int k=1,p=0;
+for(auto i:v){
+if(k==2){
+    p=i;
+    break;
+}
+k++;}
+if(p==0)
+return -1;
+else
+return p;
+
+    }
+    void mini(TreeNode* root,vector<int> &m){
+        if(root==nullptr)
+        return ;
+m.push_back(root->val);
+mini(root->left,m);
+mini(root->right,m);
+    }
+};
