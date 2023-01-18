@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+   if(root==NULL)
+   return 0;
+   int k=0;
+   vector<int> v;
+   min(root,k,v);
+   sort(v.begin(),v.end());
+   return v[0];     
+    }
+    void min(TreeNode* root,int k,vector<int> &v){
+        if(root==NULL)
+        return ;
+        k++;
+        if(root->right==NULL && root->left==NULL)
+       { v.push_back(k);
+       return;}
+        min(root->right,k,v);
+        min(root->left,k,v);
+
+        
+    } 
+};
