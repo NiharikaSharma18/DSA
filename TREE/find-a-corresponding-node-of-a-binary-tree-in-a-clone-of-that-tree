@@ -1,0 +1,20 @@
+class Solution {
+public:
+    TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
+        if(cloned==nullptr)
+        return nullptr;
+        TreeNode* r;
+        cl(cloned,target,r);
+        return r;
+    }
+void cl(TreeNode* cloned,TreeNode* &target,TreeNode* &r){
+if(cloned==nullptr)
+return ;
+if(target->val==cloned->val)
+{
+    r=cloned;
+}
+cl(cloned->left,target,r);
+cl(cloned->right,target,r);
+}
+};
