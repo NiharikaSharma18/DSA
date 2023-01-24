@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> findMode(TreeNode* root) {
+        vector<int> v;
+        if(root==NULL)
+        {
+        
+            return v;
+        }
+        
+        map<int,int> m;
+        mode(root,m);
+        int maxi=0;
+         for(auto i:m){
+             maxi=max(maxi,i.second);
+         }
+        for(auto i:m){
+            if(i.second==maxi)
+            v.push_back(i.first);
+        
+        }
+     
+
+    return v;}
+    void mode(TreeNode* root,   map<int,int> &m){
+        if(root==nullptr)
+        return ;
+m[root->val]++;
+mode(root->left,m);
+mode(root->right,m);
+    }
+};
