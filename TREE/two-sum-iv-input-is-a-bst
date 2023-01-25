@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool findTarget(TreeNode* root, int k) {
+    if(root==NULL)
+    return false;
+    vector<int> v;
+    tar(root,v) ;
+    for(int i=0;i<v.size();i++){
+        for(int j=i+1;j<v.size();j++){
+            if(v[i]+v[j]==k)
+            return true;
+        }
+    }
+    return false;   
+    }
+    void tar(TreeNode* root,  vector<int> &v){
+        if(root==NULL)
+        return ;
+        v.push_back(root->val);
+        tar(root->left,v);
+        tar(root->right,v);
+    }
+};
