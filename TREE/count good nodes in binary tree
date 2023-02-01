@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int goodNodes(TreeNode* root) {
+        int count=0;
+        if(root==NULL)
+        return count;
+        countnodes(root,count,root->val);
+        return count;
+    }
+    void countnodes(TreeNode* root,int &count,int max){
+        if(root==NULL)
+        return;
+if(root->val>=max)
+{count++;
+max=root->val;
+}
+countnodes(root->left,count,max);
+countnodes(root->right,count,max);
+    }
+};
