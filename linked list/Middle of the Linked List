@@ -1,0 +1,30 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* temp=head;int c=0;
+        ListNode* temp2=head;
+        ListNode* head2;
+        while(temp!=NULL)
+        {
+         c++;
+          temp=temp->next;
+        }
+        int mid=0,k=0;
+        if(c%2!=0)
+         mid=ceil((double)c/2);
+         else
+        mid=(c/2)+1;
+                while(temp2!=NULL){
+                     k++;
+                    if(mid==k)
+                     {
+                         head2=temp2;
+                         break;
+                     }
+                      
+                     temp2=temp2->next;
+                   
+                }
+
+  return head2;  }
+};
