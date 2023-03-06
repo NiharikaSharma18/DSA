@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode* temp=head;vector<int> k,l;
+        while(temp!=NULL){
+            k.push_back(temp->val);
+            temp=temp->next;
+        }
+   for(int i=k.size()-1;i>=0;i--){
+       l.push_back(k[i]);
+   }
+   if(k==l)
+   return true;
+   else
+   return false;
+    }
+};
