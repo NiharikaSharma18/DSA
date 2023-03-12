@@ -1,0 +1,17 @@
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* temp=headA,*temp2=headB;
+        unordered_set<ListNode*> k;
+        while(temp!=NULL){
+         k.insert(temp);
+         temp=temp->next;
+        }
+        while(temp2!=NULL){
+        if(k.count(temp2)>0)
+        return temp2;
+        temp2=temp2->next;
+        }
+        return NULL;
+    }
+};
