@@ -1,0 +1,31 @@
+class Solution {
+public:
+      pair<int, int>  sum(int n) {
+        int count = 0;
+        int sum = 0;
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                count++;
+                sum += i;
+                if (i * i != n) {
+                    count++;
+                    sum += n / i;
+                }
+                if (count > 4) {
+                    break;
+                }
+            }
+        }
+        return count == 4 ? make_pair(count, sum) : make_pair(0, 0);
+    }
+
+    int sumFourDivisors(vector<int>& nums) {
+        int ans=0;
+     for(int i=0;i<nums.size();i++){
+     pair<int, int>  s =sum(nums[i]);
+         if(s.first==4)
+         ans+= s.second;
+     }   
+     return ans;
+    }
+};
